@@ -1,0 +1,27 @@
+---
+- hosts: all
+  tasks:
+
+  - name: Make sure directories exist
+    file:
+      path: "{{ item }}"
+      state: directory
+    with_items:
+    - ~/.config/systemd/user/
+    - ~/.config/backup
+    - ~/.local/bin/
+
+  - name: Install timer
+    copy: src=service/backup.timer dest=~/.config/systemd/user/
+
+  - name: Install service
+    copy: src=service/backup.service dest=~/.config/systemd/user/
+
+  - name: Install config
+    copy: src=config/backup.cfg dest=~/.config/backup/backup.cfg force=no
+
+  - name: Install the backup script
+    copy: src=src/backup.sh dest=~/.local/bin/ mode=u+x
+
+  - name: Install sanity check
+    copy: src=src/backup-sanity-check.sh dest=~/.local/bin/ mode=u+x
