@@ -6,15 +6,15 @@ It runs *daily* backups. Modify `backup.cfg` (installed as `~/.config/backup/bac
 
 ## Installation
 
-```console
+```bash
 # install the backup script and systemd service
-$ make install-locally
+make install-locally
 
 # edit the configuration file: configure your backup set and destination server
-$ vim ~/.config/backup/backup.cfg
+vim ~/.config/backup/backup.cfg
 
 # enable the daily backups
-$ make enable
+make enable
 ```
 
 ## Usage
@@ -22,8 +22,8 @@ $ make enable
 Nothing special needed. Backups are automatic.
 
 You can force the backup to start by running
-```console
-$ systemctl --user start backup.service
+```bash
+systemctl --user start backup.service
 ```
 
 ## Todo
