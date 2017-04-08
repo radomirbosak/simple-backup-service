@@ -26,16 +26,6 @@ You can force the backup to start by running
 systemctl --user start backup.service
 ```
 
-## Todo
-
-* [ ] service test
-* [x] status check
-* [x] do not overwrite config file if it exists
-* [x] .service file
-* [x] .timer file
-* [x] ansible deployment script
-* [x] backup script
-
 ## Sources
 
 * Some [slides](https://jamesbvaughan.github.io/systemd-timers-presentation/#/2)
